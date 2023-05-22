@@ -30,16 +30,27 @@ public class AdminsController {
 
     @GetMapping("/admin")
     public String showAllUsers(Model model) {
+        model.addAttribute("user", usersService.findOne());
         model.addAttribute("users", usersService.findAll());
         model.addAttribute("allRoles", rolesService.getRoles());
 
         return "admin";
     }
 
-    @GetMapping("/admin/user/{id}")
+    @GetMapping("/admin/user/{id}/edit")
     public String showOneUser(@PathVariable("id") int id, Model model) {
         model.addAttribute("user", usersService.findOne(id));
+        model.addAttribute("allRoles", rolesService.getRoles());
         return "user";
+    }
+
+    @PatchMapping("/admin/user/{id}")
+    public String update(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "redirect:/admin";
+        }
+        usersService.update(user);
+        return "redirect:/admin";
     }
 
     @GetMapping("/admin/new")
@@ -59,21 +70,7 @@ public class AdminsController {
         return "redirect:/admin";
     }
 
-    @GetMapping("/admin/user/{id}/update")
-    public String showPageEditUser(Model model, @PathVariable("id") int id) {
-        model.addAttribute("user", usersService.findOne(id));
-        model.addAttribute("allRoles", rolesService.getRoles());
-        return "admin";
-    }
 
-    @PatchMapping("/admin/user/{id}")
-    public String update(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return "redirect:/admin";
-        }
-        usersService.update(user);
-        return "redirect:/admin";
-    }
 
     @DeleteMapping("/admin/user/{id}")
     public String delete(@PathVariable("id") int id) {
