@@ -11,7 +11,7 @@
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" th:text="${user.} + ' with roles: ' + ${user.rolesToString()}">email and
+    <a class="navbar-brand" th:text="${user.getUsername()} + ' with roles: ' + ${user.rolesToString()}">email and
         role</a>
     <a th:href="@{/logout}" class="btn btn-link text-white-50">Logout</a>
 </nav>
