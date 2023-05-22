@@ -32,8 +32,8 @@
 //        Set<Role> userTestSet = Stream.of(userTest).collect(Collectors.toSet());
 //        Set<Role> adminTestSet = Stream.of(adminTest).collect(Collectors.toSet());
 //
-//        User user = new User("TestUser", "TestUser", 21, "test", userTestSet);
-//        User admin = new User("TestAdmin", "TestAdmin", 21, "test", adminTestSet);
+//        User user = new User("John", "Doe", 20, "test@mail.ru", "test", userTestSet);
+//        User admin = new User("Jane", "Doe", 40, "jane@mail.ru", "test", adminTestSet);
 //        usersService.save(user);
 //        usersService.save(admin);
 //

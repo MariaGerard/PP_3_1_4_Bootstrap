@@ -9,9 +9,8 @@ import ru.kata.spring.boot_security.demo.models.User;
 import ru.kata.spring.boot_security.demo.services.RolesService;
 import ru.kata.spring.boot_security.demo.services.UsersService;
 import ru.kata.spring.boot_security.demo.util.NewUserValidator;
-
 import javax.validation.Valid;
-import java.util.Set;
+
 
 @Controller
 public class AdminsController {

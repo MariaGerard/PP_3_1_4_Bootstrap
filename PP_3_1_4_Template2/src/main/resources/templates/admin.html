@@ -163,7 +163,7 @@
                                                                     size="2">
                                                                 <option th:each="role : ${allRoles}"
                                                                         th:value="${role.name}"
-                                                                        th:text="${role.toString()}"></option>
+                                                                        th:text="${role.name.substring(5).toString()}"></option>
                                                             </select>
                                                         </div>
 
@@ -244,7 +244,7 @@
                                                             <select class="form-control" name="roles" multiple size="2">
                                                                 <option th:each="role : ${allRoles}"
                                                                         th:value="${role.id}"
-                                                                        th:text="${role.toString()}"></option>
+                                                                        th:text="${role.name.substring(5).toString()}"></option>
                                                             </select>
                                                         </div>
 
@@ -311,7 +311,7 @@
                                             <select class="form-control" id="roles" name="roles" multiple size="2">
                                                 <option th:each="role : ${allRoles}"
                                                         th:value="${role.id}"
-                                                        th:text="${role.toString()}"></option>
+                                                        th:text="${role.name.substring(5).toString()}"></option>
                                             </select>
                                         </div>
                                         <div class="form-group text-center ">
